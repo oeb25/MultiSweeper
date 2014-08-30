@@ -1,0 +1,64 @@
+html {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  transition: all 500ms ease;
+}
+
+.hide {
+	display: none;
+}
+
+.show {
+	display: block !important;
+}
+
+.container {
+	margin: auto;
+}
+
+.slider {
+	height: 50px;
+	background-color: #AFD2FB;
+	margin: auto;
+	position: relative;
+}
+
+.tile, .tile.u:active:hover {
+	display: inline-block;
+	text-align: center;
+    border: 1px solid #eeeeee;
+    width: 50px;
+    height: 50px;
+    position: relative;
+	background-color: #FFFFFF;
+	cursor: default;
+	-webkit-user-select: none; /* Chrome/Safari */        
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+ */
+}
+
+	.tile p, .slider p {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		line-height: 0;
+		opacity: 1;
+	}
+
+	.tile.u {
+		cursor: pointer;
+		background-color: #AFD2FB;/*#6ACCCC;*/
+	}
+		.tile.u p {
+			opacity: 0;
+		}
+
+	.tile.b {
+		background-color: #F48D8E;
+	}

@@ -1,0 +1,25 @@
+html
+	head
+		title MultiSweeper
+		link(rel="stylesheet" href="main.css")
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+	body(ng-app="MultiSweeper")
+		span(style="display: none;" id="socket") #{socket}
+		
+		div.container(ng-controller="MainCtrl as main" style="width: {{ main.map[0].length * 50 }}px;" ng-class="{show: true}").hide
+			div(ng-repeat="row in main.map").row
+				div(ng-repeat="tile in row" ng-click="main.click(tile)" ng-class="tile.type").tile
+					p(ng-hide="tile.value === 0") {{ tile.value }}
+
+			p {{ main.progress.tiles.cleared }} / {{ main.progress.tiles.total }}
+
+			div(width="100%" ng-hide="main.progress.percentage === 0")
+				div(style="width: {{ main.progress.percentage || 0 }}%;").slider
+					//p {{ main.progress.percentage }}
+
+
+		script(src="https://cdn.socket.io/socket.io-1.0.6.js")
+		script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.19/angular.min.js")
+		script(src="http://d3js.org/d3.v3.min.js")
+		script(src="underscore.min.js")
+		script(src="main.js")
